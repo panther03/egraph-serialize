@@ -208,7 +208,7 @@ impl EGraph {
             let eid = u32::from_le_bytes(buf_u32);
             egraph.root_eclasses.push(eid.to_string().into());
         }
-        dbg!(reader.stream_position().unwrap());
+        //dbg!(reader.stream_position().unwrap());
         while reader.read_exact(&mut buf_u32[..1]).is_ok() {
             let enodelen: u32 = if buf_u32[0] & 0x80 != 0 {
                 reader.read_exact(&mut buf_u32[1..])?;
